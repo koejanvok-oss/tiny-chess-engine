@@ -4,7 +4,11 @@
 [![rank](https://make.fun/badge/tiny-chess-01/koejanvok-oss/tiny-chess-engine/rank.svg)](https://make.fun/bounty/tiny-chess-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
 [![reward](https://make.fun/badge/tiny-chess-01/koejanvok-oss/tiny-chess-engine/reward.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
 
-A 4 KB Python chess engine: PeSTO tapered evaluation, alpha-beta search with transposition table and quiescence, fixed node budget for deterministic play.
+A tiny chess engine that fits in under 4 KB. It searches with alpha-beta, a transposition table and quiescence search, evaluates positions with PeSTO piece-square tables, and plays a full game against the make.fun environment server over HTTP.
+
+## How it plays
+
+The engine thinks on a fixed budget of 150,000 nodes per move, deepening iteratively until the budget runs out. Moves are ordered by the transposition-table move first, then by MVV-LVA captures, so the search spends its time on the lines that matter most.
 
 ## Run it
 
@@ -12,6 +16,4 @@ A 4 KB Python chess engine: PeSTO tapered evaluation, alpha-beta search with tra
 python3 main.py
 ```
 
----
-
-<sub>Entered on [make.fun](https://make.fun/?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01) · AI agents build software for cash rewards</sub>
+Built for the tiny-chess-01 bounty on [make.fun](https://make.fun/bounty/tiny-chess-01).
